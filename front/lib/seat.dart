@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-//import 'package:web_socket_channel/io.dart';
-//import 'package:web_socket_channel/web_socket_channel.dart';
+import 'package:web_socket_channel/io.dart';
+import 'package:web_socket_channel/web_socket_channel.dart';
+import 'dart:convert';
 
 class SeatPage extends StatefulWidget {
   final String roomName;
-  //final String socketUrl;
+  final String socketUrl;
 
-  const SeatPage({super.key, required this.roomName});
+  const SeatPage({super.key, required this.roomName, required this.socketUrl});
   
   @override
   _SeatPageState createState() => _SeatPageState();
@@ -27,7 +28,7 @@ class Seat {
 
 
 class _SeatPageState extends State<SeatPage> {
-  //late WebSocketChannel channel;
+  late WebSocketChannel channel;
 
   final double designWidth = 412;
   final double designHeight = 917;
@@ -84,7 +85,6 @@ class _SeatPageState extends State<SeatPage> {
   }
 
   // 서버에서 데이터 받고 updateSeatStatus()
-  /*
   @override
   void initState() {
     super.initState();
@@ -101,7 +101,6 @@ class _SeatPageState extends State<SeatPage> {
       }
     });
   }
-  */
 
   @override
   Widget build(BuildContext context) {
@@ -174,7 +173,7 @@ class _SeatPageState extends State<SeatPage> {
 
               // 맨 위 두 좌석 (색상 유지)
               Positioned(
-                left: 64 * screenWidth / designWidth,
+                left: 148 * screenWidth / designWidth,
                 top: 136 * screenHeight / designHeight,
                 child: Container(
                   width: 25 * screenWidth / designWidth,
@@ -183,7 +182,7 @@ class _SeatPageState extends State<SeatPage> {
                 ),
               ),
               Positioned(
-                left: 64 * screenWidth / designWidth,
+                left: 148 * screenWidth / designWidth,
                 top: 186 * screenHeight / designHeight,
                 child: Container(
                   width: 25 * screenWidth / designWidth,
@@ -196,10 +195,10 @@ class _SeatPageState extends State<SeatPage> {
 
               // 좌석 상태 텍스트
               Positioned(
-                left: 104 * screenWidth / designWidth,
+                left: 188 * screenWidth / designWidth,
                 top: 137 * screenHeight / designHeight,
                 child: Text(
-                  '사람 있음 / Occupied (사람)',
+                  '사람 있음',
                   style: TextStyle(
                     color: Colors.black,
                     fontSize: 20 * screenWidth / designWidth,
@@ -209,10 +208,10 @@ class _SeatPageState extends State<SeatPage> {
                 ),
               ),
               Positioned(
-                left: 104 * screenWidth / designWidth,
+                left: 188 * screenWidth / designWidth,
                 top: 187 * screenHeight / designHeight,
                 child: Text(
-                  '비어 있음 / Empty / Available',
+                  '비어 있음',
                   style: TextStyle(
                     color: Colors.black,
                     fontSize: 20 * screenWidth / designWidth,
@@ -252,48 +251,47 @@ class _SeatPageState extends State<SeatPage> {
                 ),
               ),
 
-              // 에어컨 알림
-              Positioned(
-                left: 31 * screenWidth / designWidth,
-                top: 706 * screenHeight / designHeight,
-                child: Container(
-                  width: 350 * screenWidth / designWidth,
-                  height: 70 * screenHeight / designHeight,
-                  decoration: ShapeDecoration(
-                    color: const Color(0xD8050F83),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15),
+              // 에어컨 알림 (모든 좌석 비어있을 때만)
+              if (seats.every((seat) => seat.occupied == false))
+                Positioned(
+                  left: 31 * screenWidth / designWidth,
+                  top: 706 * screenHeight / designHeight,
+                  child: Container(
+                    width: 350 * screenWidth / designWidth,
+                    height: 70 * screenHeight / designHeight,
+                    decoration: ShapeDecoration(
+                      color: const Color(0xD8050F83),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                      shadows: const [
+                        BoxShadow(
+                          color: Color(0x7F000000),
+                          blurRadius: 5,
+                          offset: Offset(1, 2),
+                        )
+                      ],
                     ),
-                    shadows: const [
-                      BoxShadow(
-                        color: Color(0x7F000000),
-                        blurRadius: 5,
-                        offset: Offset(1, 2),
-                      )
-                    ],
+                    child: Center(
+                      child: Text(
+                        '에어컨을 꺼주세요',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 30 * screenWidth / designWidth,
+                          fontFamily: 'Pretendard',
+                          fontWeight: FontWeight.w500,
+                          shadows: [
+                            Shadow(
+                              offset: Offset(0, 4),
+                              blurRadius: 4,
+                              color: Color(0x40000000),
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
                   ),
                 ),
-              ),
-              Positioned(
-                left: 98 * screenWidth / designWidth,
-                top: 723 * screenHeight / designHeight,
-                child: Text(
-                  '에어컨을 꺼주세요',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 30 * screenWidth / designWidth,
-                    fontFamily: 'Pretendard',
-                    fontWeight: FontWeight.w500,
-                    shadows: [
-                      Shadow(
-                        offset: Offset(0, 4),
-                        blurRadius: 4,
-                        color: Color(0x40000000),
-                      )
-                    ],
-                  ),
-                ),
-              ),
 
             ],
           ),

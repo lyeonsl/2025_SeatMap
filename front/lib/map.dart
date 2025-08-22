@@ -3,6 +3,61 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'seat.dart';
 import 'settings.dart';
 
+// 강의실 버튼 클래스
+class roomBt extends StatelessWidget {
+  final double left;
+  final double top;
+  final String label;
+  final double designWidth = 412;
+  final double designHeight = 917;
+
+  const roomBt({
+    Key? key,
+    required this.left,
+    required this. top,
+    required this.label,
+}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
+    return Positioned(
+        left: left * screenWidth / designWidth,
+        top: top * screenHeight / designHeight,
+        child: Container(
+          width: 125 * screenWidth / designWidth,
+          height: 75 * screenHeight / designHeight,
+          decoration: ShapeDecoration(
+              color: Colors.white.withOpacity(0.8),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(5),
+              ),
+            shadows: const [
+              BoxShadow(
+                color: Color(0x3F000000),
+                blurRadius: 5,
+                offset: Offset(1, 1),
+              )
+            ],
+          ),
+          child: Center(
+            child: Text(
+              label,
+              style: TextStyle(
+                color: Colors.black.withOpacity(0.8),
+                fontSize: 30 * (screenWidth / designWidth),
+                fontFamily: 'Pretendard',
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+          ),
+        ),
+    );
+  }
+}
+
 class MapPage extends StatelessWidget {
   final double designWidth = 412;
   final double designHeight = 917;
@@ -37,20 +92,108 @@ class MapPage extends StatelessWidget {
             children: [
               // 지도 영역 + 좌석 버튼 영역
               SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
+                scrollDirection: Axis.horizontal,
+                child: Container(
+                  width: 660,
+                  height: screenHeight,
                   child: Container(
-                    width: 660,
-                    height: screenHeight,
-                    child: Container(
-                      color: Color(0xCCDDDFFF), // 지도 배경
-                      child: Stack(
-                        children: [
-                          // 강의실 버튼 524호
-                          Positioned(
-                            left: 32 * screenWidth / designWidth,
-                            top: 221 * screenHeight / designHeight,
-                            width: 125 * screenWidth / designWidth,
-                            height: 75 * screenHeight / designHeight,
+                    color: Color(0xCCDDDFFF), // 지도 배경
+                    child: Stack(
+                      children: [
+                        // 강의실 버튼 524호
+                        roomBt(left: 32, top: 221, label: '524호'),
+
+                        // 강의실 버튼 523호
+                        roomBt(left: 189, top: 221, label: '523호'),
+
+                        // 강의실 버튼 522호
+                        roomBt(left: 346, top: 221, label: '522호'),
+
+                        // 강의실 버튼 521호
+                        roomBt(left: 503, top: 221, label: '521호'),
+
+                        // 강의실 버튼 525호
+                        roomBt(left: 32, top: 335.5, label: '525호'),
+
+                        // EV 영역
+                        Positioned(
+                          left: 189 * screenWidth / designWidth,
+                          top: 348 * screenHeight / designHeight,
+                          width: 125 * screenWidth / designWidth,
+                          height: 50 * screenHeight / designHeight,
+                          child: Container(
+                            decoration: ShapeDecoration(
+                              color: Color(0x4C0070CD),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(25),
+                              ),
+                            ),
+                            child: Center(
+                              child: Text(
+                                'EV',
+                                style: TextStyle(
+                                  color: Colors.black.withOpacity(0.5),
+                                  fontSize: 30 * (screenWidth / designWidth),
+                                  fontFamily: 'Pretendard',
+                                  fontWeight: FontWeight.w300,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+
+                        // 화장실 영역
+                        Positioned(
+                          left: 346 * screenWidth / designWidth,
+                          top: 348 * screenHeight / designHeight,
+                          width: 125 * screenWidth / designWidth,
+                          height: 50 * screenHeight / designHeight,
+                          child: Container(
+                            decoration: ShapeDecoration(
+                              color: Color(0x4C0070CD),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(25),
+                              ),
+                            ),
+                            child: Center(
+                              child: Text(
+                                '화장실',
+                                style: TextStyle(
+                                  color: Colors.black.withOpacity(0.5),
+                                  fontSize: 30 * (screenWidth / designWidth),
+                                  fontFamily: 'Pretendard',
+                                  fontWeight: FontWeight.w300,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+
+                        // 강의실 버튼 520호
+                        roomBt(left: 503, top: 335.5, label: '520호'),
+
+                        // 강의실 버튼 516호
+                        roomBt(left: 32, top: 450, label: '516호'),
+
+                        // 강의실 버튼 517호
+                        roomBt(left: 189, top: 450, label: '517호'),
+
+                        // 강의실 버튼 518호
+                        Positioned(
+                          left: 346 * screenWidth / designWidth,
+                          top: 450 * screenHeight / designHeight,
+                          width: 125 * screenWidth / designWidth,
+                          height: 75 * screenHeight / designHeight,
+                          child: GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => SeatPage(
+                                  roomName: "518호",
+                                  socketUrl: "ws://10.0.2.2:8765",
+                                )),
+                              );
+                            },
                             child: Container(
                               decoration: ShapeDecoration(
                                 color: Colors.white.withOpacity(0.8),
@@ -67,7 +210,7 @@ class MapPage extends StatelessWidget {
                               ),
                               child: Center(
                                 child: Text(
-                                  '524호',
+                                  '518호',
                                   style: TextStyle(
                                     color: Colors.black.withOpacity(0.8),
                                     fontSize: 30 * (screenWidth / designWidth),
@@ -78,396 +221,29 @@ class MapPage extends StatelessWidget {
                               ),
                             ),
                           ),
+                        ),
 
-                          // 강의실 버튼 523호
-                          Positioned(
-                            left: 189 * screenWidth / designWidth,
-                            top: 221 * screenHeight / designHeight,
-                            width: 125 * screenWidth / designWidth,
-                            height: 75 * screenHeight / designHeight,
-                            child: Container(
-                              decoration: ShapeDecoration(
-                                color: Colors.white.withOpacity(0.8),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(5),
-                                ),
-                                shadows: [
-                                  BoxShadow(
-                                    color: Color(0x3F000000),
-                                    blurRadius: 5,
-                                    offset: Offset(1, 1),
-                                  )
-                                ],
-                              ),
-                              child: Center(
-                                child: Text(
-                                  '523호',
-                                  style: TextStyle(
-                                    color: Colors.black.withOpacity(0.8),
-                                    fontSize: 30 * (screenWidth / designWidth),
-                                    fontFamily: 'Pretendard',
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-
-                          // 강의실 버튼 522호
-                          Positioned(
-                            left: 346 * screenWidth / designWidth,
-                            top: 221 * screenHeight / designHeight,
-                            width: 125 * screenWidth / designWidth,
-                            height: 75 * screenHeight / designHeight,
-                            child: Container(
-                              decoration: ShapeDecoration(
-                                color: Colors.white.withOpacity(0.8),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(5),
-                                ),
-                                shadows: [
-                                  BoxShadow(
-                                    color: Color(0x3F000000),
-                                    blurRadius: 5,
-                                    offset: Offset(1, 1),
-                                  )
-                                ],
-                              ),
-                              child: Center(
-                                child: Text(
-                                  '522호',
-                                  style: TextStyle(
-                                    color: Colors.black.withOpacity(0.8),
-                                    fontSize: 30 * (screenWidth / designWidth),
-                                    fontFamily: 'Pretendard',
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-
-                          // 강의실 버튼 521호
-                          Positioned(
-                            left: 503 * screenWidth / designWidth,
-                            top: 221 * screenHeight / designHeight,
-                            width: 125 * screenWidth / designWidth,
-                            height: 75 * screenHeight / designHeight,
-                            child: Container(
-                              decoration: ShapeDecoration(
-                                color: Colors.white.withOpacity(0.8),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(5),
-                                ),
-                                shadows: [
-                                  BoxShadow(
-                                    color: Color(0x3F000000),
-                                    blurRadius: 5,
-                                    offset: Offset(1, 1),
-                                  )
-                                ],
-                              ),
-                              child: Center(
-                                child: Text(
-                                  '521호',
-                                  style: TextStyle(
-                                    color: Colors.black.withOpacity(0.8),
-                                    fontSize: 30 * (screenWidth / designWidth),
-                                    fontFamily: 'Pretendard',
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-
-                          // 강의실 버튼 525호
-                          Positioned(
-                            left: 32 * screenWidth / designWidth,
-                            top: 335.5 * screenHeight / designHeight,
-                            width: 125 * screenWidth / designWidth,
-                            height: 75 * screenHeight / designHeight,
-                            child: Container(
-                              decoration: ShapeDecoration(
-                                color: Colors.white.withOpacity(0.8),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(5),
-                                ),
-                                shadows: [
-                                  BoxShadow(
-                                    color: Color(0x3F000000),
-                                    blurRadius: 5,
-                                    offset: Offset(1, 1),
-                                  )
-                                ],
-                              ),
-                              child: Center(
-                                child: Text(
-                                  '525호',
-                                  style: TextStyle(
-                                    color: Colors.black.withOpacity(0.8),
-                                    fontSize: 30 * (screenWidth / designWidth),
-                                    fontFamily: 'Pretendard',
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-
-                          // EV 영역
-                          Positioned(
-                            left: 189 * screenWidth / designWidth,
-                            top: 348 * screenHeight / designHeight,
-                            width: 125 * screenWidth / designWidth,
-                            height: 50 * screenHeight / designHeight,
-                            child: Container(
-                              decoration: ShapeDecoration(
-                                color: Color(0x4C0070CD),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(25),
-                                ),
-                              ),
-                              child: Center(
-                                child: Text(
-                                  'EV',
-                                  style: TextStyle(
-                                    color: Colors.black.withOpacity(0.5),
-                                    fontSize: 30 * (screenWidth / designWidth),
-                                    fontFamily: 'Pretendard',
-                                    fontWeight: FontWeight.w300,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-
-                          // 화장실 영역
-                          Positioned(
-                            left: 346 * screenWidth / designWidth,
-                            top: 348 * screenHeight / designHeight,
-                            width: 125 * screenWidth / designWidth,
-                            height: 50 * screenHeight / designHeight,
-                            child: Container(
-                              decoration: ShapeDecoration(
-                                color: Color(0x4C0070CD),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(25),
-                                ),
-                              ),
-                              child: Center(
-                                child: Text(
-                                  '화장실',
-                                  style: TextStyle(
-                                    color: Colors.black.withOpacity(0.5),
-                                    fontSize: 30 * (screenWidth / designWidth),
-                                    fontFamily: 'Pretendard',
-                                    fontWeight: FontWeight.w300,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-
-                          // 강의실 버튼 520호
-                          Positioned(
-                            left: 503 * screenWidth / designWidth,
-                            top: 335.5 * screenHeight / designHeight,
-                            width: 125 * screenWidth / designWidth,
-                            height: 75 * screenHeight / designHeight,
-                            child: Container(
-                              decoration: ShapeDecoration(
-                                color: Colors.white.withOpacity(0.8),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(5),
-                                ),
-                                shadows: [
-                                  BoxShadow(
-                                    color: Color(0x3F000000),
-                                    blurRadius: 5,
-                                    offset: Offset(1, 1),
-                                  )
-                                ],
-                              ),
-                              child: Center(
-                                child: Text(
-                                  '520호',
-                                  style: TextStyle(
-                                    color: Colors.black.withOpacity(0.8),
-                                    fontSize: 30 * (screenWidth / designWidth),
-                                    fontFamily: 'Pretendard',
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-
-                          // 강의실 버튼 516호
-                          Positioned(
-                            left: 32 * screenWidth / designWidth,
-                            top: 450 * screenHeight / designHeight,
-                            width: 125 * screenWidth / designWidth,
-                            height: 75 * screenHeight / designHeight,
-                            child: Container(
-                              decoration: ShapeDecoration(
-                                color: Colors.white.withOpacity(0.8),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(5),
-                                ),
-                                shadows: [
-                                  BoxShadow(
-                                    color: Color(0x3F000000),
-                                    blurRadius: 5,
-                                    offset: Offset(1, 1),
-                                  )
-                                ],
-                              ),
-                              child: Center(
-                                child: Text(
-                                  '516호',
-                                  style: TextStyle(
-                                    color: Colors.black.withOpacity(0.8),
-                                    fontSize: 30 * (screenWidth / designWidth),
-                                    fontFamily: 'Pretendard',
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-
-                          // 강의실 버튼 517호
-                          Positioned(
-                            left: 189 * screenWidth / designWidth,
-                            top: 450 * screenHeight / designHeight,
-                            width: 125 * screenWidth / designWidth,
-                            height: 75 * screenHeight / designHeight,
-                            child: Container(
-                              decoration: ShapeDecoration(
-                                color: Colors.white.withOpacity(0.8),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(5),
-                                ),
-                                shadows: [
-                                  BoxShadow(
-                                    color: Color(0x3F000000),
-                                    blurRadius: 5,
-                                    offset: Offset(1, 1),
-                                  )
-                                ],
-                              ),
-                              child: Center(
-                                child: Text(
-                                  '517호',
-                                  style: TextStyle(
-                                    color: Colors.black.withOpacity(0.8),
-                                    fontSize: 30 * (screenWidth / designWidth),
-                                    fontFamily: 'Pretendard',
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-
-                          // 강의실 버튼 518호
-                          Positioned(
-                            left: 346 * screenWidth / designWidth,
-                            top: 450 * screenHeight / designHeight,
-                            width: 125 * screenWidth / designWidth,
-                            height: 75 * screenHeight / designHeight,
-                            child: GestureDetector(
-                              onTap: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(builder: (context) => SeatPage(
-                                    roomName: "518호",
-                                    socketUrl: "ws://yourserver.com/socket",
-                                  )),
-                                );
-                              },
-                              child: Container(
-                                decoration: ShapeDecoration(
-                                  color: Colors.white.withOpacity(0.8),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(5),
-                                  ),
-                                  shadows: [
-                                    BoxShadow(
-                                      color: Color(0x3F000000),
-                                      blurRadius: 5,
-                                      offset: Offset(1, 1),
-                                    )
-                                  ],
-                                ),
-                                child: Center(
-                                  child: Text(
-                                    '518호',
-                                    style: TextStyle(
-                                      color: Colors.black.withOpacity(0.8),
-                                      fontSize: 30 * (screenWidth / designWidth),
-                                      fontFamily: 'Pretendard',
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-
-                          // 강의실 버튼 519호
-                          Positioned(
-                            left: 503 * screenWidth / designWidth,
-                            top: 450 * screenHeight / designHeight,
-                            width: 125 * screenWidth / designWidth,
-                            height: 75 * screenHeight / designHeight,
-                            child: Container(
-                              decoration: ShapeDecoration(
-                                color: Colors.white.withOpacity(0.8),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(5),
-                                ),
-                                shadows: [
-                                  BoxShadow(
-                                    color: Color(0x3F000000),
-                                    blurRadius: 5,
-                                    offset: Offset(1, 1),
-                                  )
-                                ],
-                              ),
-                              child: Center(
-                                child: Text(
-                                  '519호',
-                                  style: TextStyle(
-                                    color: Colors.black.withOpacity(0.8),
-                                    fontSize: 30 * (screenWidth / designWidth),
-                                    fontFamily: 'Pretendard',
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
+                        // 강의실 버튼 519호
+                        roomBt(left: 503, top: 450, label: '519호'),
+                      ],
                     ),
-                  )
+                  ),
+                )
               ),
 
               // 문구
               Positioned(
-                left: 31 * screenWidth / designWidth,
-                top: 38 * screenHeight / designHeight,
-                child: Text(
-                  '강의실을 선택해주세요',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 25 * (screenWidth / designWidth),
-                    fontFamily: 'Pretendard',
-                    fontWeight: FontWeight.w400,
+                  left: 31 * screenWidth / designWidth,
+                  top: 38 * screenHeight / designHeight,
+                  child: Text(
+                      '강의실을 선택해주세요',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 25 * (screenWidth / designWidth),
+                      fontFamily: 'Pretendard',
+                      fontWeight: FontWeight.w400,
+                    ),
                   ),
-                ),
               ),
 
               // 하단 흰색 배경 버튼

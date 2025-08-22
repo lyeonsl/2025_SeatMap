@@ -85,7 +85,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 top: 46 * screenHeight / designHeight,
                 child: Container(
                     width: 330 * screenWidth / designWidth,
-                    height: 219 * screenHeight / designHeight,
+                    height: 186 * screenHeight / designHeight,
                     decoration: ShapeDecoration(
                       color: Colors.white.withOpacity(0.6),
                       shape: RoundedRectangleBorder(
@@ -137,41 +137,41 @@ class _SettingsPageState extends State<SettingsPage> {
 
                         //정보 수정 버튼
                         Positioned(
-                            right: 10 * screenWidth / designWidth,
-                            bottom: 10 * screenHeight / designHeight,
-                            child: GestureDetector(
-                              onTap: () {
-                                _showEditDialog();
+                          right: 10 * screenWidth / designWidth,
+                          bottom: 10 * screenHeight / designHeight,
+                          child: GestureDetector(
+                            onTap: () {
+                              _showEditDialog();
                               },
-                              child: Container(
-                                width: 95 * screenWidth / designWidth,
-                                height: 32 * screenHeight / designHeight,
-                                decoration: ShapeDecoration(
-                                  color: Colors.white,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                  shadows: [
-                                    BoxShadow(
-                                      color: Colors.black.withOpacity(0.1),
-                                      blurRadius: 4,
-                                      offset: Offset(1, 1),
-                                    )
-                                  ],
+                            child: Container(
+                              width: 95 * screenWidth / designWidth,
+                              height: 32 * screenHeight / designHeight,
+                              decoration: ShapeDecoration(
+                                color: Colors.white,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10),
                                 ),
-                                child: Center(
-                                  child: Text(
-                                    "정보 수정",
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 20 * screenWidth / designWidth,
-                                      fontFamily: 'Pretendard',
-                                      fontWeight: FontWeight.w400,
-                                    ),
+                                shadows: [
+                                  BoxShadow(
+                                    color: Colors.black.withOpacity(0.1),
+                                    blurRadius: 4,
+                                    offset: Offset(1, 1),
+                                  )
+                                ],
+                              ),
+                              child: Center(
+                                child: Text(
+                                  "정보 수정",
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 20 * screenWidth / designWidth,
+                                    fontFamily: 'Pretendard',
+                                    fontWeight: FontWeight.w400,
                                   ),
                                 ),
                               ),
-                            )
+                            ),
+                          )
                         )
                       ],
                     )
@@ -278,52 +278,52 @@ class _SettingsPageState extends State<SettingsPage> {
     final majorController = TextEditingController(text: major);
 
     showDialog(
-      context: context,
-      builder: (context) {
-        return AlertDialog(
-          title: Text('정보 수정'),
-          content: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              TextField(
-                controller: nameController,
-                keyboardType: TextInputType.text,
-                textInputAction: TextInputAction.done,
-                decoration: InputDecoration(labelText: '이름'),
-              ),
-              TextField(
-                controller: idController,
-                keyboardType: TextInputType.text,
-                textInputAction: TextInputAction.done,
-                decoration: InputDecoration(labelText: '학번'),
-              ),
-              TextField(
-                controller: majorController,
-                keyboardType: TextInputType.text,
-                textInputAction: TextInputAction.done,
-                decoration: InputDecoration(labelText: '학과'),
-              ),
-            ],
-          ),
-          actions: [
-            TextButton(onPressed: () {
-              Navigator.of(context).pop();
-            },
-              child: Text('취소'),
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            title: Text('정보 수정'),
+            content: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                TextField(
+                  controller: nameController,
+                  keyboardType: TextInputType.text,
+                  textInputAction: TextInputAction.done,
+                  decoration: InputDecoration(labelText: '이름'),
+                ),
+                TextField(
+                  controller: idController,
+                  keyboardType: TextInputType.text,
+                  textInputAction: TextInputAction.done,
+                  decoration: InputDecoration(labelText: '학번'),
+                ),
+                TextField(
+                  controller: majorController,
+                  keyboardType: TextInputType.text,
+                  textInputAction: TextInputAction.done,
+                  decoration: InputDecoration(labelText: '학과'),
+                ),
+              ],
             ),
-            TextButton(onPressed: () {
-              setState(() {
-                name = nameController.text;
-                studentId = idController.text;
-                major = majorController.text;
-              });
-              saveData();
-              Navigator.of(context).pop();
-            },
-                child: Text('확인'))
-          ],
-        );
-      },
+            actions: [
+              TextButton(onPressed: () {
+                Navigator.of(context).pop();
+              },
+                  child: Text('취소'),
+              ),
+              TextButton(onPressed: () {
+                setState(() {
+                  name = nameController.text;
+                  studentId = idController.text;
+                  major = majorController.text;
+                });
+                saveData();
+                Navigator.of(context).pop();
+              },
+                  child: Text('확인'))
+            ],
+          );
+        },
     );
   }
 }
