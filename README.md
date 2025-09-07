@@ -70,10 +70,10 @@
 
 ## 📊 모델 성능
 <p align="center">
-  <img width="819" height="348" alt="image" src="https://github.com/user-attachments/assets/450d7d52-bf27-422b-b86b-eae94887dc88" />
+  <img width="546" height="232" alt="image" src="https://github.com/user-attachments/assets/450d7d52-bf27-422b-b86b-eae94887dc88" />
 </p>
 <p align="center">
-  <img width="732" height="92" alt="image" src="https://github.com/user-attachments/assets/a0ccf627-0e5d-4355-a909-8b5288617bae" />
+  <img width="488" height="62" alt="image" src="https://github.com/user-attachments/assets/a0ccf627-0e5d-4355-a909-8b5288617bae" />
 </p>
 
 - 약 **90% 정확도** 달성:contentReference[oaicite:1]{index=1}  
