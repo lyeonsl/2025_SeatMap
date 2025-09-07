@@ -59,8 +59,8 @@
 ---
 
 ## 📊 모델 성능
-<img width="819" height="348" alt="image" src="https://github.com/user-attachments/assets/02d04d3f-f3b3-4b9f-b345-0983865bbd3c" />
-<img width="732" height="92" alt="image" src="https://github.com/user-attachments/assets/548e4160-1db4-4714-a504-4c780083fba9" />
+<img width="410" height="174" alt="image" src="https://github.com/user-attachments/assets/02d04d3f-f3b3-4b9f-b345-0983865bbd3c" />
+<img width="366" height="46" alt="image" src="https://github.com/user-attachments/assets/548e4160-1db4-4714-a504-4c780083fba9" />
 
 - 약 **90% 정확도** 달성:contentReference[oaicite:1]{index=1}  
 - 자체 데이터셋 + 외부 공개 데이터셋 병합 학습  
