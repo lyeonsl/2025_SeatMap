@@ -25,7 +25,7 @@
 ---
 
 ## 개발 프로세스
-<img width="915" height="853" alt="image" src="https://github.com/user-attachments/assets/b10bf336-c963-47ec-b544-b24d572187f5" />
+<img width="500" height="400" alt="image" src="https://github.com/user-attachments/assets/b10bf336-c963-47ec-b544-b24d572187f5" />
 
 ---
 
@@ -46,6 +46,7 @@
 
 ## 🖼️ 실행 화면
 <img width="229" height="509" alt="image" src="https://github.com/user-attachments/assets/0d8e114c-b21e-41cc-b368-8d59656b7143" /> <img width="229" height="509" alt="image" src="https://github.com/user-attachments/assets/73f4eccf-1974-4ca6-94b0-2381d2e1b180" /> <img width="229" height="508" alt="image" src="https://github.com/user-attachments/assets/fcb18d0d-95d9-48a9-8d70-9617aaffdc3f" />
+
 <img width="238" height="528" alt="image" src="https://github.com/user-attachments/assets/732057c0-0a00-4341-a54d-96184d662f37" /> <img width="236" height="525" alt="image" src="https://github.com/user-attachments/assets/757dc8b7-6677-442a-89b2-2ded48524c62" />
 
 - **Home 화면**: 강의실 선택 → 실시간 좌석 배치도 확인  
