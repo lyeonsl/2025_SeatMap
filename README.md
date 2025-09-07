@@ -25,7 +25,7 @@
 ---
 
 ## 개발 프로세스
-<img width="600" height="500" alt="image" src="https://github.com/user-attachments/assets/b10bf336-c963-47ec-b544-b24d572187f5" />
+<img width="600" height="700" alt="image" src="https://github.com/user-attachments/assets/b10bf336-c963-47ec-b544-b24d572187f5" />
 
 ---
 
