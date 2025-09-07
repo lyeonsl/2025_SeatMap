@@ -24,25 +24,13 @@
 
 ---
 
+## 개발 프로세스
+<img width="915" height="853" alt="image" src="https://github.com/user-attachments/assets/b10bf336-c963-47ec-b544-b24d572187f5" />
+
+---
+
 ## 🛠️ 시스템 아키텍처
 <img width="1280" height="720" alt="아키텍처" src="https://github.com/user-attachments/assets/2c5af9ab-407c-4a06-ac6c-e26443a75416" />
-
-
-### 전체 파이프라인
-1. **Larix Broadcaster**  
-   - 모바일 기기에서 RTSP 스트림 송출  
-2. **MediaMTX**  
-   - RTSP 스트림 수신 및 전달  
-3. **OpenCV**  
-   - 프레임 추출, ROI(좌석 영역) 전처리  
-4. **YOLOv8**  
-   - occupied / empty 상태 추론  
-5. **JSON**  
-   - 좌석별 상태 정리  
-6. **WebSocket 서버**  
-   - 실시간으로 결과 전송  
-7. **Flutter 앱**  
-   - 좌석 색상(빨강/회색) 표시 + 에어컨 OFF 메시지  
 
 ---
 
@@ -57,6 +45,9 @@
 ---
 
 ## 🖼️ 실행 화면
+<img width="229" height="509" alt="image" src="https://github.com/user-attachments/assets/0d8e114c-b21e-41cc-b368-8d59656b7143" /> <img width="229" height="509" alt="image" src="https://github.com/user-attachments/assets/73f4eccf-1974-4ca6-94b0-2381d2e1b180" /> <img width="229" height="508" alt="image" src="https://github.com/user-attachments/assets/fcb18d0d-95d9-48a9-8d70-9617aaffdc3f" />
+<img width="238" height="528" alt="image" src="https://github.com/user-attachments/assets/732057c0-0a00-4341-a54d-96184d662f37" /> <img width="236" height="525" alt="image" src="https://github.com/user-attachments/assets/757dc8b7-6677-442a-89b2-2ded48524c62" />
+
 - **Home 화면**: 강의실 선택 → 실시간 좌석 배치도 확인  
 - **Setting 화면**: 사용자 정보(이름, 학번, 학과) 수정  
 - **좌석 표시**:  
@@ -67,6 +58,9 @@
 ---
 
 ## 📊 모델 성능
+<img width="819" height="348" alt="image" src="https://github.com/user-attachments/assets/02d04d3f-f3b3-4b9f-b345-0983865bbd3c" />
+<img width="732" height="92" alt="image" src="https://github.com/user-attachments/assets/548e4160-1db4-4714-a504-4c780083fba9" />
+
 - 약 **90% 정확도** 달성:contentReference[oaicite:1]{index=1}  
 - 자체 데이터셋 + 외부 공개 데이터셋 병합 학습  
 - 학습된 가중치(`best.pt`)를 실시간 추론에 적용  
