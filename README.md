@@ -25,8 +25,8 @@
 ---
 
 ## 🛠️ 시스템 아키텍처
+<img width="1280" height="720" alt="아키텍처" src="https://github.com/user-attachments/assets/2c5af9ab-407c-4a06-ac6c-e26443a75416" />
 
-![Architecture](./docs/classroom_seat_service_architecture_icons.png)
 
 ### 전체 파이프라인
 1. **Larix Broadcaster**  
