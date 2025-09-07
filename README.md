@@ -25,12 +25,16 @@
 ---
 
 ## 개발 프로세스
-<img width="600" height="700" alt="image" src="https://github.com/user-attachments/assets/b10bf336-c963-47ec-b544-b24d572187f5" />
+<p align="center">
+  <img width="600" height="700" alt="image" src="https://github.com/user-attachments/assets/b10bf336-c963-47ec-b544-b24d572187f5" />
+</p>
 
 ---
 
 ## 🛠️ 시스템 아키텍처
-<img width="1280" height="720" alt="아키텍처" src="https://github.com/user-attachments/assets/2c5af9ab-407c-4a06-ac6c-e26443a75416" />
+<p align="center">
+  <img width="1280" height="720" alt="아키텍처" src="https://github.com/user-attachments/assets/2c5af9ab-407c-4a06-ac6c-e26443a75416" />
+</p>
 
 ---
 
@@ -45,9 +49,15 @@
 ---
 
 ## 🖼️ 실행 화면
-<img width="115" height="255" alt="image" src="https://github.com/user-attachments/assets/0d8e114c-b21e-41cc-b368-8d59656b7143" /> <img width="115" height="255" alt="image" src="https://github.com/user-attachments/assets/73f4eccf-1974-4ca6-94b0-2381d2e1b180" /> <img width="115" height="255" alt="image" src="https://github.com/user-attachments/assets/fcb18d0d-95d9-48a9-8d70-9617aaffdc3f" />
-
-<img width="115" height="255" alt="image" src="https://github.com/user-attachments/assets/732057c0-0a00-4341-a54d-96184d662f37" /> <img width="115" height="255" alt="image" src="https://github.com/user-attachments/assets/757dc8b7-6677-442a-89b2-2ded48524c62" />
+<p align="center">
+  <img width="115" height="255" alt="image" src="https://github.com/user-attachments/assets/0d8e114c-b21e-41cc-b368-8d59656b7143" />
+   <img width="115" height="255" alt="image" src="https://github.com/user-attachments/assets/73f4eccf-1974-4ca6-94b0-2381d2e1b180" />
+   <img width="115" height="255" alt="image" src="https://github.com/user-attachments/assets/fcb18d0d-95d9-48a9-8d70-9617aaffdc3f" />
+</p>
+<p align="center">
+  <img width="115" height="255" alt="image" src="https://github.com/user-attachments/assets/732057c0-0a00-4341-a54d-96184d662f37" />
+   <img width="115" height="255" alt="image" src="https://github.com/user-attachments/assets/757dc8b7-6677-442a-89b2-2ded48524c62" />
+</p>
 
 - **Home 화면**: 강의실 선택 → 실시간 좌석 배치도 확인  
 - **Setting 화면**: 사용자 정보(이름, 학번, 학과) 수정  
@@ -59,8 +69,12 @@
 ---
 
 ## 📊 모델 성능
-<img width="410" height="174" alt="image" src="https://github.com/user-attachments/assets/02d04d3f-f3b3-4b9f-b345-0983865bbd3c" />
-<img width="366" height="46" alt="image" src="https://github.com/user-attachments/assets/548e4160-1db4-4714-a504-4c780083fba9" />
+<p align="center">
+  <img width="410" height="174" alt="image" src="https://github.com/user-attachments/assets/02d04d3f-f3b3-4b9f-b345-0983865bbd3c" />
+</p>
+<p align="center">
+  <img width="366" height="46" alt="image" src="https://github.com/user-attachments/assets/548e4160-1db4-4714-a504-4c780083fba9" />
+</p>
 
 - 약 **90% 정확도** 달성:contentReference[oaicite:1]{index=1}  
 - 자체 데이터셋 + 외부 공개 데이터셋 병합 학습  
