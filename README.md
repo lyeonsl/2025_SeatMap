@@ -7,14 +7,14 @@
 
 ---
 
-## 🚀 프로젝트 개요
+## 프로젝트 개요
 - 강의실 좌석 점유 여부를 **실시간으로 탐지**  
 - 사용자는 앱에서 좌석 배치도를 색상으로 직관적으로 확인    
 - 학습 공간의 효율적 활용 + 캠퍼스 자원 최적화 달성  
 
 ---
 
-## 🔑 핵심 기능
+## 핵심 기능
 1. **실시간 좌석 탐지**  
    - YOLOv8 기반 객체 탐지 모델로 occupied / empty 분류  
 2. **좌석 시각화**  
@@ -31,14 +31,14 @@
 
 ---
 
-## 🛠️ 시스템 아키텍처
+## 시스템 아키텍처
 <p align="center">
   <img width="1280" height="720" alt="아키텍처" src="https://github.com/user-attachments/assets/2c5af9ab-407c-4a06-ac6c-e26443a75416" />
 </p>
 
 ---
 
-## 📂 개발 환경
+## 개발 환경
 - **모델 학습**: ![Google Colab](https://img.shields.io/badge/Google%20Colab-F9AB00?style=for-the-badge&logo=googlecolab&logoColor=white) ![Jupyter](https://img.shields.io/badge/Jupyter-F37626?style=for-the-badge&logo=jupyter&logoColor=white) 
 - **AI 프레임워크**: ![YOLOv8](https://img.shields.io/badge/YOLOv8-00FFFF?style=for-the-badge&logoColor=black) ![PyTorch](https://img.shields.io/badge/PyTorch-%23EE4C2C.svg?style=for-the-badge&logo=PyTorch&logoColor=white) ![TensorFlow](https://img.shields.io/badge/TensorFlow-%23FF6F00.svg?style=for-the-badge&logo=TensorFlow&logoColor=white)  
 - **영상 처리**: ![OpenCV](https://img.shields.io/badge/OpenCV-5C3EE8?style=for-the-badge&logo=opencv&logoColor=white)  
@@ -48,7 +48,7 @@
 
 ---
 
-## 🖼️ 실행 화면
+## 실행 화면
 <p align="center">
   <img width="115" height="255" alt="image" src="https://github.com/user-attachments/assets/0d8e114c-b21e-41cc-b368-8d59656b7143" />
    <img width="115" height="255" alt="image" src="https://github.com/user-attachments/assets/73f4eccf-1974-4ca6-94b0-2381d2e1b180" />
@@ -68,7 +68,7 @@
 
 ---
 
-## 📊 모델 성능
+## 모델 성능
 <p align="center">
   <img width="546" height="232" alt="image" src="https://github.com/user-attachments/assets/450d7d52-bf27-422b-b86b-eae94887dc88" />
 </p>
@@ -82,7 +82,7 @@
 
 ---
 
-## 🔮 향후 연구 방향
+## 향후 연구 방향
 - **에너지 절감 연동 기능**: 무점유 상태가 일정 시간 지속되면 시설팀에 알림  
 - **다강의실 확장**: 여러 강의실을 통합 관리하는 서버 아키텍처  
 - **학사시스템 연동**: 강의실 예약/시간표와 점유 상태 비교  
@@ -90,13 +90,13 @@
 
 ---
 
-## 📌 레퍼런스
+## 레퍼런스
 - 직접 구축한 데이터셋: [SeatMap Dataset](https://universe.roboflow.com/lyeonsl/seatmap-eeyuj)  
 - 외부 공개 데이터셋: [Seat Detection](https://universe.roboflow.com/seat-detection/seat-detection-2zzxf)  
 - 프로젝트 깃허브: [2025_SeatMap](https://github.com/YUM1yum/2025_SeatMap)  
 
 ---
 
-## 👨‍💻 팀 구성
+## 팀 구성
 - 팀명: **SM 모델공방**  
 - 팀원: 이유민, 김연서, 김지연, 김주연, 박세희, 최서영
